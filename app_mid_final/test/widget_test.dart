@@ -9,11 +9,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:app_mid_final/main.dart';
+import 'package:app_mid_final/component/ProductItem.dart';
+import 'package:app_mid_final/component/ProductList.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget( MaterialApp(home: Scaffold(
+  appBar: AppBar(
+  backgroundColor: Colors.white, 
+  centerTitle: true,             
+  title: Text(
+    'Products',
+    style: TextStyle(color: Colors.black), 
+  ),
+  elevation: 0,                  
+)
+, body: ProductList()))
+);
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
